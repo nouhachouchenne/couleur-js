@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification de la couleur d'une cellule de tableau</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .green {
+            background-color: green;
+        }
+        .white {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modifier la couleur d'une cellule de tableau</h1>
+    <table id="myTable">
+        <tr>
+            <td class="green">Cellule 1</td>
+            <td class="white">Cellule 2</td>
+            <td>Cellule 3</td>
+        </tr>
+        <tr>
+            <td>Cellule 4</td>
+            <td>Cellule 5</td>
+            <td>Cellule 6</td>
+        </tr>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cells = document.querySelectorAll('#myTable td');
+
+            cells.forEach(function(cell) {
+                cell.addEventListener('click', function() {
+                    if (this.classList.contains('green')) {
+                        this.classList.remove('green');
+                        this.classList.add('white');
+                        alert('La cellule est devenue rouge !');
+                    } else if (this.classList.contains('white')) {
+                        this.classList.remove('white');
+                        this.classList.add('green');
+                        alert('La cellule est devenue blanc !');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
